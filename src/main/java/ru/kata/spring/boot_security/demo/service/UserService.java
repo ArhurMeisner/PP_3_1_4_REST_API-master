@@ -57,7 +57,10 @@ public class UserService implements UserDetailsService {
     }
 
     public void updateUser(User user) {
-        if (user.getPassword().startsWith("$2a$12$") && user.getPassword().length() == 60){
+        User userFromDb = userRepository.getReferenceById(user.getId());
+
+        if (user.getPassword().equals(userFromDb.getPassword()) &&
+                user.getPassword().startsWith("$2a$12$") && user.getPassword().length() == 60){
             userRepository.save(user);
         } else {
             user.setPassword(passwordEncoder.encode(user.getPassword()));

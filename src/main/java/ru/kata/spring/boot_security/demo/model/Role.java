@@ -17,12 +17,12 @@ public class Role implements GrantedAuthority {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "role_name")
+    @Column(name = "role_name", nullable = false, unique = true)
     private String name;
 
-    @Transient
-    @ManyToMany (mappedBy = "roles")
-    private List<User> users = new ArrayList<>();
+//    @Transient
+//    @ManyToMany (mappedBy = "roles")
+//    private List<User> users = new ArrayList<>();
 
     @Override
     public String getAuthority() {
