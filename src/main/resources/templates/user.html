@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>User</title>
@@ -14,6 +14,7 @@
             <b><!--/*@thymesVar id="user" type="ru.kata.spring.boot_security.demo.model.User"*/-->
             <span class="navbar-text-xl text-white" th:text="${user.email}"></span></b>
             <span class="navbar-text-xl text-white">&nbsp with roles: &nbsp</span>
+            <!--/*@thymesVar id="user" type="ru.kata.spring.boot_security.demo.model.User"*/-->
             <span class="navbar-text-xl text-white" th:text="${user.getRolesAsString()}"></span>
         </form>
         <ul class="navbar-nav float-lg-right">
@@ -30,14 +31,14 @@
 
         <div class="col-lg-2 bg-white min-vh-100">
             <ul class="nav nav-pills flex-column">
-                <br/>
-                <div sec:authorize="${hasRole('ADMIN')}">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin">Admin</a>
-                    </li>
-                </div>
+
                 <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/user}">User</a>
+                    <a class="nav-link" href="/admin" sec:authorize="hasRole('ADMIN')"
+                       aria-controls="v-pills-home" aria-selected="false">Admin</a>
+                    <a class="nav-link active" href="/user" sec:authorize="(hasAnyRole('ADMIN','USER'))"
+                       role="tab"
+                       aria-controls="v-pills-profile" aria-selected="true">User</a>
+                    <!--                    <a class="nav-link active" th:href="@{/user}">User</a>-->
                 </li>
 
             </ul>
@@ -73,15 +74,7 @@
                                         <th>Role</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr >
-                                        <td th:text="${user.getId()}"></td>
-                                        <td th:text="${user.getUsername}"></td>
-                                        <td th:text="${user.getEmail}"></td>
-                                        <td th:text="${user.getAge}"></td>
-                                        <td th:text="${user.getOccupation}"></td>
-                                        <td th:text="${user.getRolesAsString}"></td>
-                                    </tr>
+                                    <tbody id="User">
                                     </tbody>
                                 </table>
                             </div>
@@ -103,6 +96,7 @@
 
 
 
+<script type="text/javascript" src="/user.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

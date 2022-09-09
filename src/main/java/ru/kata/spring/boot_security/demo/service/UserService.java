@@ -42,6 +42,7 @@ public class UserService implements UserDetailsService {
         return userRepository.getReferenceById(id);
     }
 
+    @Transactional
     public User showUserByUsername(String username){
         return userRepository.findUserByUsername(username);
     }
