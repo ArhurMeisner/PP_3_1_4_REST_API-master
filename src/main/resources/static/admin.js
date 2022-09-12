@@ -1,4 +1,4 @@
-const renderUsers = async (users1) => {
+const renderUsers = async (users) => {
     const response = await fetch("/api/admin");
 
     if (response.ok) {
@@ -19,7 +19,7 @@ const renderUsers = async (users1) => {
                     <td>${user.age}</td> 
                     <td>${user.occupation}</td> 
                     <td>${user.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN')}</td> 
-                    <td>${user.password}</td>
+                    
               <td> 
                    <button type="button" class="btn btn-info" id="edit-user" data-action="edit" 
                     data-id="${user.id}" data-toggle="modal" data-target="modal" data-userid="${user.id}" >Edit</button> 
@@ -46,7 +46,16 @@ const removeUser = (id) => {
     renderUsers(users);
 }
 
+// GET ALL users
+const info = document.querySelector('#allUsers');
+const url = 'http://127.0.0.1:8080/api/admin'
 
+fetch(url, {mode: 'cors'})
+    .then(res => res.json())
+    .then(data => {
+        users = data;
+        renderUsers(data)
+    })
 
 // ADD user
 
@@ -113,10 +122,12 @@ on(document, 'click', '#edit-user', e => {
     const userInfo = e.target.parentNode.parentNode
     document.getElementById('editId').value = userInfo.children[0].innerHTML
     document.getElementById('editUsername').value = userInfo.children[1].innerHTML
-    document.getElementById('editLastname').value = userInfo.children[2].innerHTML
-    document.getElementById('editEmail').value = userInfo.children[3].innerHTML
-    document.getElementById('editRoles').value = userInfo.children[4].innerHTML
-    document.getElementById('editPassword').value = userInfo.children[5].innerHTML
+    document.getElementById('editEmail').value = userInfo.children[2].innerHTML
+    document.getElementById('editPassword').value = userInfo.children[6].innerHTML
+    document.getElementById('editAge').value = userInfo.children[3].innerHTML
+    document.getElementById('editOccupation').value = userInfo.children[4].innerHTML
+    document.getElementById('editRoles').value = userInfo.children[5].innerHTML
+
 
 
     $("#modalEdit").modal("show")
@@ -165,7 +176,7 @@ const deleteUserForm = document.querySelector('#modalDelete')
 deleteUserForm.addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    fetch('http://localhost:8080/api/admin/' + currentUserId, {
+    fetch('http://127.0.0.1:8080/api/admin/' + currentUserId, {
         method: 'DELETE'
     })
         .then(res => res.json())
@@ -183,9 +194,10 @@ on(document, 'click', '#delete-user', e => {
 
     document.getElementById('delId').value = fila2.children[0].innerHTML
     document.getElementById('delUsername').value = fila2.children[1].innerHTML
-    document.getElementById('delLastname').value = fila2.children[2].innerHTML
-    document.getElementById('delEmail').value = fila2.children[3].innerHTML
-    document.getElementById('delRoles').value = fila2.children[4].innerHTML
+    document.getElementById('delEmail').value = fila2.children[2].innerHTML
+    document.getElementById('delAge').value = fila2.children[3].innerHTML
+    document.getElementById('delOccupation').value = fila2.children[4].innerHTML
+    document.getElementById('delRoles').value = fila2.children[5].innerHTML
 
     $("#modalDelete").modal("show")
 })
