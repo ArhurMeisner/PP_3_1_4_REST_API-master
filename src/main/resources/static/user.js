@@ -1,4 +1,4 @@
-const url = 'http://127.0.0.1:8080/api/user'
+const url = 'http://localhost:8080/api/user'
 let loggedInUser = document.querySelector('#User')
 
 //fetch(url, {mode: "no-cors"})

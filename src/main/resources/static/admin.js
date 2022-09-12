@@ -48,7 +48,7 @@ const removeUser = (id) => {
 
 // GET ALL users
 const info = document.querySelector('#allUsers');
-const url = 'http://127.0.0.1:8080/api/admin'
+const url = 'http://localhost:8080/api/admin'
 
 fetch(url, {mode: 'cors'})
     .then(res => res.json())
@@ -176,7 +176,7 @@ const deleteUserForm = document.querySelector('#modalDelete')
 deleteUserForm.addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    fetch('http://127.0.0.1:8080/api/admin/' + currentUserId, {
+    fetch('http://localhost:8080/api/admin/' + currentUserId, {
         method: 'DELETE'
     })
         .then(res => res.json())
