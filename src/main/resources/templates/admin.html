@@ -259,75 +259,76 @@
 
 
 <!--                New User-->
-<div class="tab-pane container-fluid fade" id="addUser">
-    <div class="row">
-        <div class="col border bg-light">
-            <p><h5>Add new user</h5></p>
-        </div>
-        <div class="w-100"></div>
-        <div class="col border bg-white text-center">
-            <br/>
-            <form id="addForm">
-                <div class="form-group row justify-content-center">
-                    <div class="col-sm-4">
-                        <strong><label for="addUsername">User name</label></strong>
-                        <br/>
-                        <input type="text" class="form-control" name="username" id="addUsername"
-                               placeholder="User name" required minlength="1" maxlength="50">
+    <div class="tab-pane container-fluid fade" id="addUser">
+        <div class="row">
+            <div class="col border bg-light">
+                <p><h5>Add new user</h5></p>
+            </div>
+            <div class="w-100"></div>
+            <div class="col border bg-white text-center">
+                <br/>
+                <form id="addForm">
+                    <div class="form-group row justify-content-center">
+                        <div class="col-sm-4">
+                            <strong><label for="addUsername">User name</label></strong>
+                            <br/>
+                            <input type="text" class="form-control" name="username" id="addUsername"
+                                   placeholder="User name" required minlength="1" maxlength="50">
 
-                        <strong><label for="addEmail">Email</label></strong>
-                        <br/>
-                        <input type="text" class="form-control" name="email" id="addEmail"
-                               placeholder="email" required minlength="1" maxlength="20">
+                            <strong><label for="addEmail">Email</label></strong>
+                            <br/>
+                            <input type="text" class="form-control" name="email" id="addEmail"
+                                   placeholder="email" required minlength="1" maxlength="20">
 
-                        <strong><label for="addAge">Age</label></strong>
-                        <br/>
-                        <input type="text" class="form-control" name="Age" id="addAge"
-                               placeholder="0" required minlength="1" maxlength="20">
+                            <strong><label for="addAge">Age</label></strong>
+                            <br/>
+                            <input type="number" class="form-control" name="Age" id="addAge"
+                                   placeholder="0" required minlength="1" maxlength="20">
 
-                        <strong><label for="addOccupation">Occupation</label></strong>
-                        <br/>
-                        <input type="text" class="form-control" name="Occupation" id="addOccupation"
-                               placeholder="Occupation" required minlength="1" maxlength="20">
+                            <strong><label for="addOccupation">Occupation</label></strong>
+                            <br/>
+                            <input type="text" class="form-control" name="Occupation" id="addOccupation"
+                                   placeholder="Occupation" required minlength="1" maxlength="20">
 
 
-                        <strong><label for="addPassword">Password</label></strong>
-                        <br/>
-                        <input type="password" class="form-control" name="password"
-                               id="addPassword" placeholder="Password" required>
+                            <strong><label for="addPassword">Password</label></strong>
+                            <br/>
+                            <input type="password" class="form-control" name="password"
+                                   id="addPassword" placeholder="Password" required>
 
-                        <strong><label for="addRoles">Role</label></strong>
-                        <select multiple class="custom-select w-100"
-                                size="2" id="addRoles" name="nameRoles">
-                            <option value="1_ADMIN">ADMIN</option>
-                            <option value="2_USER" selected>USER</option>
-                        </select>
+                            <strong><label for="addRoles">Role</label></strong>
+                            <select multiple class="custom-select w-100"
+                                    size="2" id="addRoles" name="nameRoles">
+                                <option value="1_ADMIN">ADMIN</option>
+                                <option value="2_USER" selected>USER</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <button type="submit" class="btn btn-success" value="Add new user" id="add">
-                    Add new user
-                </button>
-                <br/>
-                <br/>
-            </form>
+                    <button type="submit" class="btn btn-success" value="Add new user" id="add">
+                        Add new user
+                    </button>
+                    <br/>
+                    <br/>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 
-<!-- Optional JavaScript -->
-<script type="text/javascript" src="/admin.js"></script>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="/admin.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </body>
 </html>
